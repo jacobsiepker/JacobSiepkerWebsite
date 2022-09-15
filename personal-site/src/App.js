@@ -1,13 +1,28 @@
 import './App.css';
 import React from "react"
 import ModelGalleryFiber from './threejs/model-gallery-fiber';
-import { Grid } from '@mui/material'
+import { Grid, Paper } from '@mui/material'
+import { Stack } from '@mui/system';
 
 export default function App() {
   return(
-    < Grid container columns= {{  }} spacing = {2} >
-      <Grid item xs={8}>
-        < ModelGalleryFiber />
+    < Grid container sx={{ width: '100vw', height: '100vh', backgroundColor: "#000000"}} columns = {2}>
+       <Grid container xs={12} sm={7} lg={6}>
+        < Stack spacing={1} flex = "1 1 0" >
+          <h1> 3D Model </h1>
+          < ModelGalleryFiber />
+        
+        </Stack>
+      </Grid>
+      <Grid container xs={12} sm={5} lg={3}>
+        < Stack spacing={1} flex = "1 1 0" >
+          <Paper>
+            <h2> About </h2>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla aliquet porttitor lacus luctus accumsan. Id nibh tortor id aliquet lectus proin. Facilisis volutpat est velit egestas dui id ornare. Eget nulla facilisi etiam dignissim diam quis. Tempor orci dapibus ultrices in. Turpis tincidunt id aliquet risus feugiat in ante. Ut porttitor leo a diam sollicitudin tempor id eu. Erat pellentesque adipiscing commodo elit at imperdiet dui accumsan. Vitae et leo duis ut diam quam nulla. Et egestas quis ipsum suspendisse ultrices. Molestie a iaculis at erat.
+            </p>
+          </Paper>
+        </Stack>
       </Grid>
     </Grid>
   )
