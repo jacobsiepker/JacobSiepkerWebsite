@@ -7,6 +7,7 @@ import { Stack } from "@mui/system";
 export default function App() {
   const [data, setData] = useState([{}]);
 
+  // TODO: Fix this chunk of code
   useEffect(() => {
     fetch("/getData").then((res) =>
       res.json().then((data) => {
@@ -15,6 +16,7 @@ export default function App() {
       })
     );
   }, []);
+  // End TODO
 
   return (
     <Grid
@@ -44,6 +46,15 @@ export default function App() {
               duis ut diam quam nulla. Et egestas quis ipsum suspendisse
               ultrices. Molestie a iaculis at erat.
             </p>
+
+            {/* Might also be broken below here */}
+            <div>
+              {typeof data.members === "undefined" ? (
+                <p>Loading...</p>
+              ) : (
+                <p> {data} </p>
+              )}
+            </div>
           </Paper>
         </Stack>
       </Grid>
