@@ -18,16 +18,6 @@ export default function App() {
   }, []);
   // End TODO
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch("/test").then((response) =>
-        response.json()
-      );
-      setData(result);
-    };
-    fetchData();
-  }, []);
-
   return (
     <Grid
       container
