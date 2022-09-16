@@ -5,9 +5,11 @@ import { Grid, Paper } from "@mui/material";
 import { Stack } from "@mui/system";
 
 export default function App() {
+  //Define Params for API use.
   const [data, setData] = useState([{}]);
 
-  // TODO: Fix this chunk of code
+
+  // Get API data. GET request.
   useEffect(() => {
     fetch("/test").then((res) =>
       res.json().then((data) => {
@@ -16,7 +18,6 @@ export default function App() {
       })
     );
   }, []);
-  // End TODO
 
   return (
     <Grid
@@ -25,7 +26,7 @@ export default function App() {
       columns={2}
     >
       {/* <Grid container xs={12} sm={7} lg={6}> */}
-      <Grid container columnSpacing={10}>
+      <Grid container>
         <Stack spacing={1} flex="1 1 0">
           <h1> 3D Model </h1>
           <ModelGalleryFiber />
@@ -37,24 +38,15 @@ export default function App() {
           <Paper>
             <h2> About </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla
-              aliquet porttitor lacus luctus accumsan. Id nibh tortor id aliquet
-              lectus proin. Facilisis volutpat est velit egestas dui id ornare.
-              Eget nulla facilisi etiam dignissim diam quis. Tempor orci dapibus
-              ultrices in. Turpis tincidunt id aliquet risus feugiat in ante. Ut
-              porttitor leo a diam sollicitudin tempor id eu. Erat pellentesque
-              adipiscing commodo elit at imperdiet dui accumsan. Vitae et leo
-              duis ut diam quam nulla. Et egestas quis ipsum suspendisse
-              ultrices. Molestie a iaculis at erat.
+              View API data below---------------
             </p>
 
-            {/* Might also be broken below here */}
+        {/* Add API data to UI. */}
             <div>
-              {typeof data.members === "undefined" ? (
+              {typeof data.Test === "undefined" ? (
                 <p>Loading...</p>
               ) : (
-                <p> {data} </p>
+                <p> {data['Test']} </p>
               )}
             </div>
           </Paper>
