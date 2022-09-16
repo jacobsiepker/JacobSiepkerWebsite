@@ -1,9 +1,8 @@
 from flask import Flask
-from flask import Flask
 
 app = Flask(__name__)
 
-# Dots n Boxes API Route
+# Test API Route
 @app.route("/test")
 def test():
     return "Our API route is working successfully"

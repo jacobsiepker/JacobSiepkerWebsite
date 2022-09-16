@@ -9,7 +9,7 @@ export default function App() {
 
   // TODO: Fix this chunk of code
   useEffect(() => {
-    fetch("/getData").then((res) =>
+    fetch("/test").then((res) =>
       res.json().then((data) => {
         setData(data);
         console.log(data);
@@ -18,19 +18,31 @@ export default function App() {
   }, []);
   // End TODO
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await fetch("/test").then((response) =>
+        response.json()
+      );
+      setData(result);
+    };
+    fetchData();
+  }, []);
+
   return (
     <Grid
       container
       sx={{ width: "100vw", height: "100vh", backgroundColor: "#abcdef" }}
       columns={2}
     >
-      <Grid container xs={12} sm={7} lg={6}>
+      {/* <Grid container xs={12} sm={7} lg={6}> */}
+      <Grid container columnSpacing={10}>
         <Stack spacing={1} flex="1 1 0">
           <h1> 3D Model </h1>
           <ModelGalleryFiber />
         </Stack>
       </Grid>
-      <Grid container xs={12} sm={5} lg={3}>
+      {/* <Grid container xs={12} sm={5} lg={3}> */}
+      <Grid container columnSpacing={10}>
         <Stack spacing={1} flex="1 1 0">
           <Paper>
             <h2> About </h2>
